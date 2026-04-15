@@ -1,5 +1,5 @@
 // Control Panel App
-const ADMIN_PASSWORD = 'warecario123'; // Change this to your actual password
+const ADMIN_PASSWORD = "REPLACE_ME"; // Change this to your actual password
 
 // State
 let currentSection = 'dashboard';
