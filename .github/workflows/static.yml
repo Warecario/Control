@@ -30,7 +30,8 @@ jobs:
 
       # THIS IS THE FIXED INJECTION STEP
       - name: Inject password
-        run: sed -i 's/REPLACE_ME/${{ secrets.PASSWORD }}/g' app.js
+        run: sed -i 's/REPLACE_ME/${{ secrets.PASSWORD }}/g' docs/app.js
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
