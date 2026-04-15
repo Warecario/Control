@@ -1,0 +1,382 @@
+:root {
+    --primary: #5865F2;
+    --primary-dark: #4752C4;
+    --bg-dark: #1a1a2e;
+    --bg-card: #16213e;
+    --bg-sidebar: #0f0f23;
+    --text: #eaeaea;
+    --text-muted: #a0a0a0;
+    --border: #2d3748;
+    --success: #00c853;
+    --error: #ff1744;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* Login Screen */
+#login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-box {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-box h1 {
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-box button:hover {
+    background: var(--primary-dark);
+}
+
+.error {
+    color: var(--error);
+    margin-top: 0.5rem;
+}
+
+/* Main Screen */
+#main-screen {
+    display: flex;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: var(--bg-sidebar);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    flex: 1;
+}
+
+.sidebar li {
+    padding: 12px 16px;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+}
+
+.sidebar li:hover {
+    background: var(--bg-card);
+    color: var(--text);
+}
+
+.sidebar li.active {
+    background: var(--primary);
+    color: white;
+}
+
+.logout {
+    margin-top: auto;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid var(--error);
+    color: var(--error);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout:hover {
+    background: var(--error);
+    color: white;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.stat-card h3 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Plugin List */
+.plugin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.plugin-item {
+    background: var(--bg-card);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plugin-item.active {
+    border-color: var(--success);
+}
+
+.plugin-info h4 {
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.plugin-info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.plugin-actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+button.danger {
+    background: var(--error);
+}
+
+button.danger:hover {
+    background: #d50000;
+}
+
+/* Spotify Controls */
+.spotify-controls {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.now-playing {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.now-playing h3 {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.queue-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.queue-controls input {
+    flex: 1;
+    padding: 10px 16px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+}
+
+/* Hierarchy */
+.hierarchy-tier {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+}
+
+.hierarchy-tier h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.user-tag {
+    background: var(--bg-dark);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Command Box */
+.command-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.command-box input {
+    flex: 1;
+    padding: 12px 16px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.output {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    min-height: 200px;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+/* API Stats */
+.api-stat {
+    background: var(--bg-card);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-direction: row;
+        padding: 1rem;
+        z-index: 100;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .sidebar ul {
+        display: flex;
+        overflow-x: auto;
+        gap: 0.5rem;
+    }
+
+    .sidebar li {
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+
+    .content {
+        padding: 1rem;
+        padding-bottom: 5rem;
+    }
+
+    .logout {
+        display: none;
+    }
+}

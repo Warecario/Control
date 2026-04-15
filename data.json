@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-14T20:17:00Z",
+  "plugins": [
+    {
+      "name": "Accountability",
+      "version": "1.2",
+      "author": "Warecario",
+      "active": true,
+      "description": "Self-monitoring and contradiction tracking"
+    },
+    {
+      "name": "CarioPerms",
+      "version": "1.0",
+      "author": "Warecario",
+      "active": true,
+      "description": "Permissions manager for Warecario plugins"
+    },
+    {
+      "name": "Plugin Manager",
+      "version": "1.0",
+      "author": "Warecario",
+      "active": true,
+      "description": "Plugin installation and management"
+    }
+  ],
+  "hierarchy": {
+    "primary": ["Veshorned"],
+    "secondary": ["Warecario", "Chromium", "Raihan", "Taekoda", "SuperGr8Nate"]
+  },
+  "pendingCommands": [],
+  "apiUsage": {
+    "spotify": 47,
+    "webSearch": 12,
+    "github": 3,
+    "exec": 89
+  },
+  "currentTrack": {
+    "name": "Where Do I Go - Neptunica Remix",
+    "artist": "DJ Antoine",
+    "playing": true
+  },
+  "session": {
+    "status": "active",
+    "started": "2026-04-14T20:17:00Z"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Control Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-screen" class="screen">
+        <div class="login-box">
+            <h1>OpenClaw Control Panel</h1>
+            <input type="password" id="password" placeholder="Enter Admin Password">
+            <button onclick="login()">Access</button>
+            <p id="login-error" class="error"></p>
+        </div>
+    </div>
+
+    <div id="main-screen" class="screen hidden">
+        <nav class="sidebar">
+            <h2>Control Panel</h2>
+            <ul>
+                <li onclick="showSection('dashboard')" class="active">Dashboard</li>
+                <li onclick="showSection('plugins')">Plugins</li>
+                <li onclick="showSection('spotify')">Spotify</li>
+                <li onclick="showSection('hierarchy')">Hierarchy</li>
+                <li onclick="showSection('api')">API Usage</li>
+                <li onclick="showSection('commands')">Commands</li>
+            </ul>
+            <button onclick="logout()" class="logout">Logout</button>
+        </nav>
+
+        <main class="content">
+            <section id="dashboard" class="section">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Active Plugins</h3>
+                        <p id="plugin-count">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Current Track</h3>
+                        <p id="current-track">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>API Calls Today</h3>
+                        <p id="api-calls">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Session Status</h3>
+                        <p id="session-status">Active</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="plugins" class="section hidden">
+                <h2>Plugin Management</h2>
+                <div class="plugin-actions">
+                    <input type="file" id="plugin-file" accept=".cario2weak,.octweak,.c112tweak">
+                    <button onclick="uploadPlugin()">Install Plugin</button>
+                </div>
+                <div id="plugin-list" class="plugin-list">
+                    Loading plugins...
+                </div>
+            </section>
+
+            <section id="spotify" class="section hidden">
+                <h2>Spotify Control</h2>
+                <div class="spotify-controls">
+                    <div class="now-playing">
+                        <h3>Now Playing</h3>
+                        <p id="spotify-track">Loading...</p>
+                    </div>
+                    <div class="controls">
+                        <button onclick="sendCommand('prev')">Previous</button>
+                        <button onclick="sendCommand('play')">Play</button>
+                        <button onclick="sendCommand('pause')">Pause</button>
+                        <button onclick="sendCommand('skip')">Skip</button>
+                    </div>
+                    <div class="queue-controls">
+                        <input type="text" id="queue-input" placeholder="Song name...">
+                        <button onclick="queueSong()">Queue</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="hierarchy" class="section hidden">
+                <h2>Hierarchy Management</h2>
+                <div id="hierarchy-list">
+                    Loading hierarchy...
+                </div>
+            </section>
+
+            <section id="api" class="section hidden">
+                <h2>API Usage</h2>
+                <div id="api-stats">
+                    Loading API statistics...
+                </div>
+            </section>
+
+            <section id="commands" class="section hidden">
+                <h2>Send Command</h2>
+                <div class="command-box">
+                    <input type="text" id="command-input" placeholder="Enter command...">
+                    <button onclick="sendCustomCommand()">Send</button>
+                </div>
+                <div id="command-output" class="output"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
