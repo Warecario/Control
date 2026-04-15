@@ -268,3 +268,12 @@ document.getElementById('command-input')?.addEventListener('keypress', function(
 document.getElementById('queue-input')?.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') queueSong();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('login-button');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', async () => {
+            await login();
+        });
+    }
+});
