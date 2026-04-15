@@ -1,5 +1,5 @@
 // Control Panel App
-const ADMIN_PASSWORD = "REPLACE_ME"; // Change this to your actual password
+const ADMIN_PASSWORD = "cd2af27eedfe9ffdd7cdca12ee4da4fb07da4bea6939c9ed5cce44d1a076b210"; // Change this to your actual password
 
 // State
 let currentSection = 'dashboard';
@@ -13,9 +13,17 @@ function init() {
 }
 
 // Login/Logout
-function login() {
-    const password = document.getElementById('password').value;
-    if (password === ADMIN_PASSWORD) {
+async function login() {
+    const passwordInput = document.getElementById('password').value;
+    
+    // Convert your input into a hash
+    const msgUint8 = new TextEncoder().encode(passwordInput);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    // Compare the two hashes
+    if (hashHex === ADMIN_PASSWORD_HASH) {
         document.getElementById('login-screen').classList.add('hidden');
         document.getElementById('main-screen').classList.remove('hidden');
         refreshData();
